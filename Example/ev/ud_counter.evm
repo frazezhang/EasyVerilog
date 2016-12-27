@@ -1,0 +1,19 @@
+para TYPE = u8
+
+input u1 clk
+input u1 arst_n
+input u1 en
+input u1 up
+output TYPE cnt 
+
+
+domain (posedge clk, negedge arst_n) {
+
+    reg cnt (TYPE) {
+        reset: 0
+        en:
+          up: ++
+          else: -- 
+    }
+}
+
